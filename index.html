@@ -6,20 +6,23 @@
     <title>Login Puzzle</title>
     <link rel="stylesheet" href="src/style.css">
 </head>
-<body>
-    <div class="login-container">
-        <form onsubmit="return validateLogin()">
-            <div class="input-field">
-                <input type="text" id="username" placeholder="Username" required>
-            </div>
-            <div class="input-field">
-                <input type="password" id="password" placeholder="Password" required>
-            </div>
-            <button type="submit" class="btn">Continue</button>
-        </form>
-    </div>
 
+<body>
+    <div class="image-container">
+        <img src="./src/assets/Background.png" alt="" class="background-image">
+        <div id="door-area" class="door-area"></div>
+    </div>
+    <script src="src/button.js"></script>
     <script src="src/login.js"></script>
     <script src="src/sha256.js"></script>
+    <script>
+        function scrollToMiddle() {
+            window.scrollTo(0, document.body.scrollHeight/3);
+        }
+    
+        window.addEventListener('load', function() {
+            setTimeout(scrollToMiddle, 0);
+        });
+    </script>
 </body>
 </html>

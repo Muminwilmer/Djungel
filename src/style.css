@@ -1,15 +1,21 @@
 body {
   font-family: Arial, sans-serif;
   /* background-color: #f4f4f9; */
-  margin: 0;
+  /* margin: 0; */
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  /* height: 100vh; */
 
-  background-image: url("assets/Background.png");
-  background-size: cover;
-  background-position: center;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow-y: auto; /* Enable vertical scrolling */
+  /* overflow: hidden; */
+
+    /* background-image: url("assets/Background.png");
+    background-size: cover;
+    background-position: center; */
 }
 .login-container {
   background: #ffffff;
@@ -46,4 +52,40 @@ body {
 }
 .btn:hover {
   background-color: #0056b3;
+}
+
+.image-container {
+  position: relative;
+  width: 100%;
+  min-height: 1378px; /* Ensure content is taller than the viewport to trigger scrolling */
+  overflow: hidden; /* Hide any overflow outside the container */
+}
+
+.background-image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Make the image cover the container while preserving aspect ratio */
+  object-position: center center; /* Center the image */
+  transform: translate(-50%, -50%); /* Center the image exactly */
+}
+
+.door-area {
+    position: absolute;
+    top: 45%; /* Adjust this value as needed for the door's position */
+    left: 77%; /* Adjust this value as needed for the door's position */
+    width: 6%;  /* Adjust this value for the door's width */
+    height: 16%; /* Adjust this value for the door's height */
+    background-color: rgba(255, 165, 0, 0.6); /* Bright orange with transparency */
+    border: 2px solid rgba(255, 165, 0, 1); /* Optional border to make it stand out more */
+    cursor: pointer; /* Make the div behave like a button */
+    z-index: 1; /* Ensure it appears above the image */
+    /* display:none */
+}
+
+/* Optional: Style to show the button when hovering */
+.door-area:hover {
+    background-color: rgba(255, 165, 0, 0.9); /* Darker on hover */
 }
