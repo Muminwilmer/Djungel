@@ -174,7 +174,7 @@ function checkOrder(card) {
       gameContainer.remove()
       localStorage.setItem("memorylvl2", "true");
       setUpMemory()
-      alert("You won!")
+      // alert("You won!")
     }
   } else {
     console.log("Incorrect order! Game Over.");

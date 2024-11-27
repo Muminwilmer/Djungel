@@ -19,6 +19,7 @@ function setUpNextLevel(){
     if (memoryLevel2 && mouseMazeLevel2) {
       window.location.href = "../level3/treasure.html";
     } else {
+      doorArea.style.cursor = "not-allowed";
       alert("You need to complete the other rooms to pass!");
     }
   });
