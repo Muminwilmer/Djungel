@@ -4,7 +4,7 @@ doorArea.addEventListener("click", validateLogin);
 function validateLogin() {
   const password = prompt("Skriv det gömda lösenordet från pusslet.")
 
-  const encodedPassword = "03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4";
+  const encodedPassword = "766af62a6275002e9909af31d1f15e02609d9443de336c0ce13ba52cb3e56042";
   
   if (sha256(password) === encodedPassword){
     window.location.href = "../level2/level2.html"
