@@ -31,6 +31,9 @@ const cards = [
   "yellow",
   "purple",
   "pink",
+  "brown",
+  "black",
+  "cyan",
 ];
 
 
