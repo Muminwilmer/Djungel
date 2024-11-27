@@ -1,59 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
+<script>window.addEventListener('load',function(){window.location.href="./src/level1/index.html"})</script>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Puzzle</title>
-    <link rel="stylesheet" href="src/style.css">
-
-    <meta property="og:title" content="Projekt-Vecka" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://djungel.vercel.app" />
-    <meta property="og:image" content="https://djungel.vercel.app/src/assets/favicon.png" />
-    <meta property="og:description" content="Lös skattens förbannelse" />
-    <meta name="theme-color" content="#196b21">
+  <link rel="icon" type="image/x-icon" href="/src/assets/favicon.ico">
+  <meta property="og:title" content="Projekt-Vecka" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://djungel.vercel.app" />
+  <meta property="og:image" content="https://djungel.vercel.app/src/assets/favicon.png" />
+  <meta property="og:description" content="Lös skattens förbannelse" />
+  <meta name="theme-color" content="#196b21">
 </head>
-
-<body>
-    <div class="image-container">
-        <img src="./src/assets/outside.png" alt="" class="background-image" draggable="false" (dragstart)="false" class="unselectable">
-        <div id="door-area" class="door-area"></div>
-    </div>
-    <script src="src/button.js"></script>
-    <script src="src/login.js"></script>
-    <script src="src/sha256.js"></script>
-    <script>
-        function scrollToMiddle() {
-            window.scrollTo(0, document.body.scrollHeight/3);
-        }
-    
-        window.addEventListener('load', function() {
-            setTimeout(scrollToMiddle, 0);
-        });
-
-
-
-        /*
-
-        ------
-        SPEL 1 
-        Maze med musen, Nudda ej vägarna (Flytta musen till början igen om du "dör")
-
-        ------
-        SPEL 2
-        Memory spel med Spakar/Knappar som blinkar innan rundan börjar.
-
-        ------
-        SPEL 3
-        ???
-
-        ------
-        3/3 Spel klara - Sista rummet
-        Kistan med förbannelsen och ett grattis meddelande för du klarade det.
-
-
-
-        -*/
-    </script>
-</body>
-</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projekt Vecka</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+    <div id="image-container" class="image-container">
+        <img src="../assets/outside.png" alt="" class="background-image" draggable="false" (dragstart)="false" class="unselectable">
+        <div id="door-area" class="door-area"></div>
+    </div>
+    <script src="../button.js">
+    </script>
+    <script src="./login.js"></script>
+    <script src="./sha256.js"></script>
+    <script>
+        function scrollToMiddle() {
+            window.scrollTo(0, document.body.scrollHeight/3);
+        }
+    
+        window.addEventListener('load', function() {
+            // Scroll to the middle of the screen
+            setTimeout(scrollToMiddle, 0);
+
+            // Add the custom button on the door
+            const doorAreaConfig = {
+                left: 43,   // Position from left of door
+                top: 54,    // Position from top of door
+                width: 11,  // Width of door
+                height: 9,  // Height of door
+                element: "door-area", // Name of the element
+                parentElement: "image-container"
+            };
+            addButtonDiv(doorAreaConfig)
+        });
+
+
+
+        /*
+
+        ------
+        SPEL 1 
+        Maze med musen, Nudda ej vägarna (Flytta musen till början igen om du "dör")
+
+        ------
+        SPEL 2
+        Memory spel med Spakar/Knappar som blinkar innan rundan börjar.
+
+        ------
+        3/3 Spel klara - Sista rummet
+        Kistan med förbannelsen och ett grattis meddelande för du klarade det.
+
+
+
+        -*/
+    </script>
+</body>
+</html>

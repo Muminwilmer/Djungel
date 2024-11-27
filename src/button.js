@@ -1,15 +1,30 @@
 // script.js
 
 document.addEventListener("DOMContentLoaded", function() {
-  const doorArea = document.getElementById("door-area");
 
+});
+async function addButtonDiv(doorAreaConfig) {
+  let doorArea = document.getElementById(doorAreaConfig.element);
+
+  if (!doorArea){
+    doorArea = document.createElement("div")
+    doorArea.id = doorAreaConfig.element
+    doorArea.className = "door-area"
+    console.log(doorArea)
+    console.log(document.getElementById(doorAreaConfig.parentElement))
+    document.getElementById(doorAreaConfig.parentElement).appendChild(doorArea);
+  }
+  console.log(doorArea)
+  
   // Define position and size
-  const doorAreaConfig = {
-      left: 43,   // Position from left of door
-      top: 54,    // Position from top of door
-      width: 11,  // Width of door
-      height: 9  // Height of door
-  };
+  // const doorAreaConfig = {
+  //     left: 43,   // Position from left of door
+  //     top: 54,    // Position from top of door
+  //     width: 11,  // Width of door
+  //     height: 9,  // Height of door
+  //     element: "door-area" // Name of the element
+  //     parentElement
+  // };
 
   function updateDoorPosition() {
       const image = document.querySelector('.background-image');
@@ -28,36 +43,15 @@ document.addEventListener("DOMContentLoaded", function() {
       const heightStretch = currentHeight / naturalHeight;
       const zoomFactor = Math.max(0, (window.innerWidth-widthStretch) / (window.innerHeight-heightStretch) - aspectRatio)*80
 
-      // Calculate door position based on the door area configuration and image size
+      // Get door position from image size and zoomFactor
       const doorLeft = (doorAreaConfig.left / 100) * image.offsetWidth;
-      const doorTop = (doorAreaConfig.top / 100) * image.offsetHeight + zoomFactor;
+      const doorTop = (doorAreaConfig.top / 100) * image.offsetHeight/* + zoomFactor;*/
 
       // Set the door's position and size
       doorArea.style.left = `${doorLeft}px`;
       doorArea.style.top = `${doorTop}px`;
       doorArea.style.width = `${(doorAreaConfig.width / 100) * image.offsetWidth}px`;
-      doorArea.style.height = `${(doorAreaConfig.height / 100) * image.offsetHeight+ (zoomFactor)}px`;
-        // Original dimensions
-        
-
-        // Displayed dimensions
-        
-
-        // Aspect ratio of the image
-        
-
-        // Calculate stretch factors
-
-        console.log((window.innerWidth-widthStretch) / (window.innerHeight-heightStretch))
-        
-        // Maximum stretch factor (zoom factor)
-        // const zoomFactor = Math.max(widthStretch*100, heightStretch*100)
-
-        console.log(`Aspect Ratio: ${aspectRatio}`);
-        console.log(`Width Stretch: ${widthStretch.toFixed(2)}`);
-        console.log(`Height Stretch: ${heightStretch.toFixed(2)}`);
-        console.log(`Zoom Factor: ${zoomFactor.toFixed(2)}`);
-      
+      doorArea.style.height = `${(doorAreaConfig.height / 100) * image.offsetHeight/*+(zoomFactor)*/}px`;
   }
 
   // Get percentage from left and top (Coords for button)
@@ -74,4 +68,4 @@ document.addEventListener("DOMContentLoaded", function() {
 
   window.addEventListener("resize", updateDoorPosition);
   updateDoorPosition();
-});
+}

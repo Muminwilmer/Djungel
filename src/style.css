@@ -1,22 +1,19 @@
 body {
   font-family: Arial, sans-serif;
-  /* background-color: #f4f4f9; */
-  /* margin: 0; */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  /* height: 100vh; */
-
   margin: 0;
   padding: 0;
-  height: 100%;
-  overflow-y: auto; /* Enable vertical scrolling */
-  /* overflow: hidden; */
-
-    /* background-image: url("assets/Background.png");
-    background-size: cover;
-    background-position: center; */
+  height: auto;
+  overflow-y: scroll; /* Ensure scrolling functionality */
+  
+  /* Completely hide scrollbar */
+  -ms-overflow-style: none; /* Hide scrollbar in IE and Edge */
+  scrollbar-width: none;    /* Hide scrollbar in Firefox */
 }
+
+body::-webkit-scrollbar {
+  display: none; /* Hide scrollbar in Chrome, Safari, and Edge */
+}
+
 .login-container {
   background: #ffffff;
   padding: 20px 30px;
@@ -57,25 +54,23 @@ body {
 .image-container {
   position: relative;
   width: 100%;
-  min-height: 100vh; /* Ensure content is taller than the viewport to trigger scrolling */
-  /* overflow: hidden; */
+  min-height: 100vh; /* Ensure container is taller than the viewport */
+  min-width: 100vh;
+  overflow: visible; /* Allow overflow */
 }
 
 .background-image {
   position: absolute;
-  top: 50%;
-  left: 50%;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center center; /* Center the image */
-  transform: translate(-50%, -50%); /* Center the image exactly */
+  height: auto; /* Allow image height to adjust dynamically */
 }
+
 
 .door-area {
     position: absolute;
-    /* background-color: rgba(255, 165, 0, 0.6); */
-    /* border: 2px solid rgba(255, 165, 0, 1); */
+    background-color: rgba(255, 165, 0, 0.6);
     cursor: pointer;
     z-index: 1;
 }

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projekt Vecka Level2</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+    <div id="image-container" class="image-container">
+        <img src="../assets/corridor.png" alt="" class="background-image" draggable="false" (dragstart)="false" class="unselectable">
+        <div id="memoryGame" class="door-area"></div>
+        <div id="mouseMaze" class="door-area"></div>
+        <div id="nextLevel" class="door-area"></div>
+    </div>
+    <script src="../button.js"></script>
+    <script>
+        function scrollToMiddle() {
+            window.scrollTo(0, document.body.scrollHeight/2-50);
+        }
+    
+        window.addEventListener('load', function() {
+            // Scroll to the middle of the screen
+            setTimeout(scrollToMiddle, 0);
+
+            // Add the custom button on the door
+            const doorAreaConfig = {
+                left: 43,   // Position from left of door
+                top: 54,    // Position from top of door
+                width: 11,  // Width of door
+                height: 9,  // Height of door
+                element: "door-area", // Name of the element
+                parentElement: "image-container"
+            };
+            addButtonDiv(doorAreaConfig)
+        });
+    </script>
+</body>
+</html>
