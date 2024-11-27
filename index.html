@@ -1,4 +1,4 @@
-<script>window.addEventListener('load',function(){window.location.href="./src/level1/index.html"})</script>
+<script>window.addEventListener('load',function(){window.location.href="./src/level1/outside.html"})</script>
 <head>
   <link rel="icon" type="image/x-icon" href="/src/assets/favicon.ico">
   <meta property="og:title" content="Projekt-Vecka" />
@@ -8,3 +8,12 @@
   <meta property="og:description" content="Lös skattens förbannelse" />
   <meta name="theme-color" content="#196b21">
 </head>
+
+<body>
+  <button onclick="goToNextLevel()">An error occurred. Press button to continue to next level!</button>
+  <script>
+    async function goToNextLevel() {
+      window.location.href="./src/level1/outside.html"
+    }
+  </script>
+</body>
