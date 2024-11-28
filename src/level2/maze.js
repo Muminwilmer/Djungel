@@ -20,8 +20,10 @@ let mazeAudio;
 function checkIfHide(){
   if (document.getElementById("gameContainer")){
     this.style.cursor = "default"
+    this.style.display = "none"
   }else{
     this.style.cursor = "pointer"
+    this.style.display = "block"
   }
 }
 
