@@ -18,7 +18,7 @@ let gameStarted = false
 let mazeAudio;
 
 function checkIfHide(){
-  if (document.getElementById("game-container")){
+  if (document.getElementById("gameContainer")){
     this.style.cursor = "default"
   }else{
     this.style.cursor = "pointer"
@@ -26,6 +26,7 @@ function checkIfHide(){
 }
 
 async function preStartMazeGame() {
+  if (document.getElementById("gameContainer")) return;
   if (document.getElementById("mazeAudio")) return;
 
   mazeAudio = document.createElement("audio");

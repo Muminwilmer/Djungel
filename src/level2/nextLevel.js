@@ -13,6 +13,7 @@ function setUpNextLevel(){
   const doorArea = document.getElementById(nextLevelConfig.element);
   
   doorArea.addEventListener("click", function() {
+    if (document.getElementById("gameContainer")) return;
     const memoryLevel2 = localStorage.getItem("memorylvl2");
     const mazeLevel2 = localStorage.getItem("mazelvl2");
     
@@ -28,7 +29,7 @@ function setUpNextLevel(){
 }
 
 function checkIfHide(){
-  if (document.getElementById("game-container")){
+  if (document.getElementById("gameContainer")){
     this.style.cursor = "default"
   }else{
     this.style.cursor = "pointer"

@@ -16,7 +16,7 @@ function setUpMemory(){
 }
 
 function checkIfHide(){
-  if (document.getElementById("game-container")){
+  if (document.getElementById("gameContainer")){
     this.style.cursor = "default"
   }else{
     this.style.cursor = "pointer"
@@ -40,6 +40,7 @@ const cards = [
 ];
 let memoryAudio
 async function preStartMemoryGame() {
+  if (document.getElementById("gameContainer")) return;
   if (document.getElementById("memoryAudio")) return;
   memoryAudio = document.createElement("audio");
   memoryAudio.id = "memoryAudio"
@@ -89,7 +90,19 @@ async function startMemoryGame() {
     // card.style.width = "auto";
     // card.style.height = "auto";
     card.style.paddingBottom = "100%"; // Square aspect ratio
-    card.style.backgroundColor = "#ccc";
+    // card.style.backgroundColor = "#ccc";
+    const img = new Image();
+    img.src = "../assets/card.png";
+
+    img.onload = function () {
+      card.style.width = `auto`;
+      card.style.height = "auto"
+      card.style.backgroundImage = `url('${img.src}')`;
+      card.style.backgroundSize = "cover";
+      card.style.backgroundPosition = "center center"
+      card.style.maxWidth = "85%"
+      card.style.maxHeight = "100%"
+    };
     card.style.cursor = "pointer";
     card.style.border = "1px solid #000";
     card.style.borderRadius = "10px";

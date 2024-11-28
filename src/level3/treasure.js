@@ -18,7 +18,11 @@ function setUpTreasure(){
     
     if (memoryLevel2 == "true" && mazeLevel2 == "true") {
       if (makeBoolean(localStorage.getItem("keyFound"))){
+        localStorage.setItem("keyFound", "false");
         alert("You've found and opened the treasure! You're now free from the curse of the jungle!")
+        window.location.href = "../level4/credits.html"
+      }else{
+        alert("The chest is locked. Perhaps you can find the key hidden in this room.")
       }
     } else {
       window.location.href = "../level2/corridor.html";
