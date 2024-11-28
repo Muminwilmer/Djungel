@@ -11,7 +11,7 @@ function setUpEasterEgg(){
 
   document.getElementById(bird1.element)
   .addEventListener("click", function() {
-    alert("What a view!");
+    alert("Who's that?");
   });
   
 
@@ -43,6 +43,6 @@ function setUpEasterEgg(){
 
   document.getElementById(bird3.element)
   .addEventListener("click", function() {
-    alert("Hawk 1: Where's Hawk 3?`\nHawk 2: uhhh");
+    alert("Hawk 1: Where's Hawk 3?\nHawk 2: uhhh");
   });
 }

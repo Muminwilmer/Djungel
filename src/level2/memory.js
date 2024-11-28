@@ -11,8 +11,16 @@ function setUpMemory(){
   addButtonDiv(memoryConfig);
 
   const doorArea = document.getElementById(memoryConfig.element);
-  doorArea.addEventListener("click", startMemoryGame);
-  
+  doorArea.addEventListener("click", preStartMemoryGame);
+  doorArea.addEventListener("mousemove", checkIfHide);
+}
+
+function checkIfHide(){
+  if (document.getElementById("game-container")){
+    this.style.cursor = "default"
+  }else{
+    this.style.cursor = "pointer"
+  }
 }
 
 let currentCardIndex = 0;
@@ -20,18 +28,26 @@ let amountOfCards = 0
 let shuffledCards = []
 let isFlashing = false;
 const cards = [
-  "red",
-  "green",
-  "blue",
-  "yellow",
-  "purple",
-  "pink",
-  "brown",
-  "black",
+  "#708238",
+  "#0B6623",
+  "#3F704D",
+  "#004B49",
+  "#3B7A57",
+  "#29AB87",
+  "#8F9779",
+  "#50C878",
   // "cyan",
 ];
+let memoryAudio
+async function preStartMemoryGame() {
+  if (document.getElementById("memoryAudio")) return;
+  memoryAudio = document.createElement("audio");
+  memoryAudio.id = "memoryAudio"
 
-
+  memoryAudio.src = "../assets/puzzleMusic.mp3"
+  memoryAudio.play()
+  startMemoryGame()
+}
 async function startMemoryGame() {
   currentCardIndex = 0
   shuffledCards = []
@@ -39,6 +55,7 @@ async function startMemoryGame() {
   window.scrollTo(0, 0);
 
   const imageContainer = document.getElementById("image-container");
+
 
   // Create a game container
   const gameContainer = document.createElement("div");
@@ -55,7 +72,11 @@ async function startMemoryGame() {
   gameContainer.style.gridTemplateColumns = "repeat(4, 1fr)";
   gameContainer.style.padding = "10px";
   gameContainer.style.borderRadius = "10px";
-
+  gameContainer.style.background = "rgb(17,17,88)";
+  gameContainer.style.background = "-moz-linear-gradient(35deg, rgba(17,17,88,1) 35%, rgba(0,212,255,1) 100%)";
+  gameContainer.style.background = "-webkit-linear-gradient(35deg, rgba(17,17,88,1) 35%, rgba(0,212,255,1) 100%)";
+  gameContainer.style.background = "linear-gradient(35deg, rgba(17,17,88,1) 35%, rgba(0,212,255,1) 100%)";
+  gameContainer.style.filter = "progid:DXImageTransform.Microsoft.gradient(startColorstr='#111158',endColorstr='#00d4ff',GradientType=1)";
   imageContainer.appendChild(gameContainer);
 
   // Create the cards
@@ -73,6 +94,7 @@ async function startMemoryGame() {
     card.style.border = "1px solid #000";
     card.style.borderRadius = "10px";
     card.style.margin = "5px";
+    card.style.boxShadow = "3px 4px rgba(0, 0, 0, 1)"
 
     // Create a hidden image inside the card
     const colorCubes = document.createElement("div");
@@ -168,7 +190,7 @@ async function showMemoryCards(){
   isFlashing = false
 }
 
-function checkMemoryOrder(card) {
+async function checkMemoryOrder(card) {
   // Compare the clicked card's pickIndex with the current correct index
   const pickedIndex = card.dataset.pickIndex;
   console.log(pickedIndex, currentCardIndex)
@@ -178,6 +200,7 @@ function checkMemoryOrder(card) {
     // Update to next expected pickIndex
     currentCardIndex++;
     if (currentCardIndex>=cards.length){
+      await new Promise((resolve) => setTimeout(resolve, 250));
       const gameContainer = document.getElementById("gameContainer")
       gameContainer.remove()
       localStorage.setItem("memorylvl2", "true");

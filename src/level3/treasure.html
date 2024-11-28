@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projekt Vecka Level2</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+    <div id="image-container" class="image-container">
+        <img src="../assets/treasure.png" alt="" class="background-image" draggable="false" (dragstart)="false" class="unselectable">
+        <div id="key" class="door-area"></div>
+        <div id="treasure" class="door-area"></div>
+    </div>
+    <script src="../button.js"></script>
+
+    <script src="./key.js"></script>
+    <script src="./treasure.js"></script>
+
+    <script>
+        function scrollToMiddle() {
+            window.scrollTo(0, document.body.scrollHeight/4);
+        }
+    
+        window.addEventListener('load', function() {
+            // Scroll to the middle of the screen
+            setTimeout(scrollToMiddle, 0);
+
+            setUpKey()
+
+            setUpTreasure()
+        });
+    </script>
+</body>
+</html>
