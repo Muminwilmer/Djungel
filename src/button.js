@@ -55,16 +55,16 @@ async function addButtonDiv(doorAreaConfig) {
   }
 
   // Get percentage from left and top (Coords for button)
-  document.addEventListener("mousemove", function(event) {
-      const image = document.querySelector('.background-image');
-      const imageRect = image.getBoundingClientRect();
+  // document.addEventListener("mousemove", function(event) {
+  //     const image = document.querySelector('.background-image');
+  //     const imageRect = image.getBoundingClientRect();
       
-      const percentageXFromLeft = ((event.clientX - imageRect.left) / imageRect.width) * 100;
-      const percentageXFromTop = ((event.clientY - imageRect.top) / imageRect.height) * 100; // From the right
+  //     const percentageXFromLeft = ((event.clientX - imageRect.left) / imageRect.width) * 100;
+  //     const percentageXFromTop = ((event.clientY - imageRect.top) / imageRect.height) * 100; // From the right
 
-      console.log("Percentage from the left: " + percentageXFromLeft.toFixed(2) + "%");
-      console.log("Percentage from the top: " + percentageXFromTop.toFixed(2) + "%");
-  });
+  //     console.log("Percentage from the left: " + percentageXFromLeft.toFixed(2) + "%");
+  //     console.log("Percentage from the top: " + percentageXFromTop.toFixed(2) + "%");
+  // });
 
   window.addEventListener("resize", updateDoorPosition);
   updateDoorPosition();

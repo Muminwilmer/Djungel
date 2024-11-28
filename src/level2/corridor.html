@@ -11,14 +11,14 @@
     <div id="image-container" class="image-container">
         <img src="../assets/corridor.png" alt="" class="background-image" draggable="false" (dragstart)="false" class="unselectable">
         <div id="memoryGame" class="door-area"></div>
-        <div id="mouseMaze" class="door-area"></div>
+        <div id="maze" class="door-area"></div>
         <div id="nextLevel" class="door-area"></div>
         <div id="diamond" class="door-area"></div>
     </div>
     <script src="../button.js"></script>
 
     <script src="./memory.js"></script>
-    <script src="./mouseMaze.js"></script>
+    <script src="./maze.js"></script>
     <script src="./nextLevel.js"></script>
     <script src="./easterEggs.js"></script>
     <script>
@@ -32,23 +32,11 @@
 
             // Configs
 
-
-            const mouseMazeConfig = {
-                left: 61,   // Position from left of door
-                top: 56,    // Position from top of door
-                width: 8,  // Width of door
-                height: 24,  // Height of door
-                element: "mouseMaze", // Name of the element
-                parentElement: "image-container"
-            }
-
-
-            
             // Memory
             setUpMemory()
 
             // Mouse Maze
-            addButtonDiv(mouseMazeConfig);
+            setUpMouseMaze();
             
             // Next Level
             setUpNextLevel()

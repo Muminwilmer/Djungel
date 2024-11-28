@@ -11,19 +11,14 @@ function setUpMemory(){
   addButtonDiv(memoryConfig);
 
   const doorArea = document.getElementById(memoryConfig.element);
-  if (localStorage.getItem("memorylvl2")){
-    doorArea.style.cursor = "not-allowed";
-    doorArea.removeEventListener("click", startGame);
-  }else{
-    doorArea.addEventListener("click", startGame);
-  }
+  doorArea.addEventListener("click", startMemoryGame);
   
 }
 
 let currentCardIndex = 0;
 let amountOfCards = 0
 let shuffledCards = []
-
+let isFlashing = false;
 const cards = [
   "red",
   "green",
@@ -33,11 +28,11 @@ const cards = [
   "pink",
   "brown",
   "black",
-  "cyan",
+  // "cyan",
 ];
 
 
-async function startGame() {
+async function startMemoryGame() {
   currentCardIndex = 0
   shuffledCards = []
 
@@ -57,8 +52,9 @@ async function startGame() {
   gameContainer.style.backgroundColor = "#f9f9f9";
   gameContainer.style.border = "2px solid black";
   gameContainer.style.display = "grid";
-  gameContainer.style.gridTemplateColumns = "repeat(3, 1fr)";
+  gameContainer.style.gridTemplateColumns = "repeat(4, 1fr)";
   gameContainer.style.padding = "10px";
+  gameContainer.style.borderRadius = "10px";
 
   imageContainer.appendChild(gameContainer);
 
@@ -69,11 +65,14 @@ async function startGame() {
     card.dataset.index = index;
     card.dataset.flipped = "false";
     card.style.position = "relative";
-    card.style.width = "100%";
+    // card.style.width = "auto";
+    // card.style.height = "auto";
     card.style.paddingBottom = "100%"; // Square aspect ratio
     card.style.backgroundColor = "#ccc";
     card.style.cursor = "pointer";
     card.style.border = "1px solid #000";
+    card.style.borderRadius = "10px";
+    card.style.margin = "5px";
 
     // Create a hidden image inside the card
     const colorCubes = document.createElement("div");
@@ -86,21 +85,22 @@ async function startGame() {
     colorCubes.style.top = "0";
     colorCubes.style.left = "0";
     colorCubes.style.display = "none"; // Hidden by default
+    colorCubes.style.borderRadius = "10px"; // Hidden by default
 
     card.appendChild(colorCubes);
     gameContainer.appendChild(card);
 
     // Add click event to flip the card
-    card.addEventListener("click", () => flipCard(card, true));
+    card.addEventListener("click", () => flipMemoryCard(card, true));
     return card;
   });
 
-  shuffleArray(shuffledCards)
+  shuffleMemoryArray(shuffledCards)
   shuffledCards.forEach((card, index) => {
     card.dataset.pickIndex = index
   });
 
-  await showCards()
+  await showMemoryCards()
 
   // const showAgain = document.createElement("button");
   // showAgain.innerHTML = "Show again"
@@ -116,16 +116,20 @@ async function startGame() {
   imageContainer.appendChild(gameContainer);
 }
 
-function flipCard(card, isClick) {
+function flipMemoryCard(card, isClick) {
   const colorCubes = card.querySelector("div");
   const isFlipped = card.dataset.flipped === "true";
 
   // If it's flipped and player clicks
   if (!isFlipped && isClick){
+    if (isFlashing){
+      console.log("Can't press now")
+      return;
+    }
     if (document.getElementById("showAgain")){
       document.getElementById("showAgain").remove()
     }
-    checkOrder(card);
+    checkMemoryOrder(card);
   }
 
   // If it's flipped but the show cards is flipping it
@@ -145,25 +149,26 @@ function flipCard(card, isClick) {
 
 }
 
-function shuffleArray(array) {
+function shuffleMemoryArray(array) {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     [array[i], array[j]] = [array[j], array[i]];
   }
 }
 
-async function showCards(){
+async function showMemoryCards(){
   // const cardsList = Array.from(document.querySelectorAll(`[class*="card"]`))
-
+  isFlashing = true
   await new Promise((resolve) => setTimeout(resolve, 800));
   for (const card of shuffledCards) {
-    flipCard(card, false);
+    flipMemoryCard(card, false);
     await new Promise((resolve) => setTimeout(resolve, 500));
-    flipCard(card, false);
+    flipMemoryCard(card, false);
   }
+  isFlashing = false
 }
 
-function checkOrder(card) {
+function checkMemoryOrder(card) {
   // Compare the clicked card's pickIndex with the current correct index
   const pickedIndex = card.dataset.pickIndex;
   console.log(pickedIndex, currentCardIndex)
@@ -176,17 +181,17 @@ function checkOrder(card) {
       const gameContainer = document.getElementById("gameContainer")
       gameContainer.remove()
       localStorage.setItem("memorylvl2", "true");
-      setUpMemory()
+      location.reload();
       // alert("You won!")
     }
   } else {
     console.log("Incorrect order! Game Over.");
-    resetGame(); 
+    resetMemoryGame(); 
   }
 }
 
-function resetGame(){
+function resetMemoryGame(){
   const gameContainer = document.getElementById("gameContainer")
   gameContainer.remove()
-  startGame()
+  startMemoryGame()
 }

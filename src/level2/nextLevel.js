@@ -1,9 +1,9 @@
 function setUpNextLevel(){
   const nextLevelConfig = {
     left: 44,   // Position from left of door
-    top: 59,    // Position from top of door
+    top: 59.8,    // Position from top of door
     width: 12,  // Width of door
-    height: 16,  // Height of door
+    height: 14,  // Height of door
     element: "nextLevel", // Name of the element
     parentElement: "image-container"
   }
