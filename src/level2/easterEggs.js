@@ -9,16 +9,16 @@ function setUpEasterEgg(){
   }
   addButtonDiv(diamond);
 
-  document.getElementById(diamond.element)
-  .addEventListener("click", function() {
+  const doorArea = document.getElementById(diamond.element)
+  doorArea.addEventListener("click", function() {
     if (document.getElementById("gameContainer")) return;
     alert("You try to steal the diamond. Suddenly the diamond lights up and you remember no more..");
     localStorage.setItem("memorylvl2", "false");
     localStorage.setItem("mazelvl2", "false");
     localStorage.setItem("keyFound", "false");
     window.location.href = "../level1/outside.html"
-  })
-  .addEventListener("mousemove", checkIfHide);
+  });
+  doorArea.addEventListener("mousemove", checkIfHide);
 }
 
 function checkIfHide(){
