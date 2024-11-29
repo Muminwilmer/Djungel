@@ -1,30 +1,13 @@
-// script.js
-
-document.addEventListener("DOMContentLoaded", function() {
-
-});
 async function addButtonDiv(doorAreaConfig) {
   let doorArea = document.getElementById(doorAreaConfig.element);
 
   if (!doorArea){
+    console.log("Door area not found, creating new!")
     doorArea = document.createElement("div")
     doorArea.id = doorAreaConfig.element
     doorArea.className = "door-area"
-    console.log(doorArea)
-    console.log(document.getElementById(doorAreaConfig.parentElement))
     document.getElementById(doorAreaConfig.parentElement).appendChild(doorArea);
   }
-  console.log(doorArea)
-  
-  // Define position and size
-  // const doorAreaConfig = {
-  //     left: 43,   // Position from left of door
-  //     top: 54,    // Position from top of door
-  //     width: 11,  // Width of door
-  //     height: 9,  // Height of door
-  //     element: "door-area" // Name of the element
-  //     parentElement
-  // };
 
   function updateDoorPosition() {
       const image = document.querySelector('.background-image');

@@ -11,7 +11,11 @@ function setUpEasterEgg(){
 
   const doorArea = document.getElementById(diamond.element)
   doorArea.addEventListener("click", function() {
-    if (document.getElementById("gameContainer")) return;
+    if (document.getElementById("gameContainer")){ 
+      console.log("Pressed diamond, but game is active.")
+      return;
+    }
+    console.log("Pressed diamond, resetting everything.")
     alert("You try to steal the diamond. Suddenly the diamond lights up and you remember no more..");
     localStorage.setItem("memorylvl2", "false");
     localStorage.setItem("mazelvl2", "false");

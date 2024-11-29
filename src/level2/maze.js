@@ -42,7 +42,6 @@ function startMazeGame() {
   window.scrollTo(0, 0);
   if (document.getElementById("gameContainer"))return;
   
-  // Game container setup
   const imageContainer = document.getElementById("image-container");
 
   const gameContainer = document.createElement("div");
@@ -181,6 +180,7 @@ function startMazeGame() {
 
     if (isColliding) {
       // alert("You lost!")
+      console.log("You touched the walls, isColliding:", true)
       gameStarted = false
       gameContainer.remove()
       startMazeGame()

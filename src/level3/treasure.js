@@ -18,6 +18,7 @@ function setUpTreasure(){
     
     // if (memoryLevel2 == "true" && mazeLevel2 == "true") {
       if (makeBoolean(localStorage.getItem("keyFound"))){
+        console.log("Opening chest")
         localStorage.setItem("keyFound", "false");
         alert("You've found and opened the treasure! But inside you find it comes at a heavy cost..")
         alert('You find a note in a weird language. At the bottom it reads "By holding this note you shall be cursed to forever have damp socks!"')
