@@ -3,15 +3,7 @@ body {
   margin: 0;
   padding: 0;
   height: auto;
-  overflow-y: scroll; /* Ensure scrolling functionality */
-  
-  /* Completely hide scrollbar */
-  -ms-overflow-style: none; /* Hide scrollbar in IE and Edge */
-  scrollbar-width: none;    /* Hide scrollbar in Firefox */
-}
-
-body::-webkit-scrollbar {
-  display: none; /* Hide scrollbar in Chrome, Safari, and Edge */
+  overflow-y: scroll;
 }
 
 .login-container {
@@ -54,9 +46,9 @@ body::-webkit-scrollbar {
 .image-container {
   position: relative;
   width: 100%;
-  min-height: 100vh; /* Ensure container is taller than the viewport */
+  min-height: 100vh;
   min-width: 100vh;
-  overflow: visible; /* Allow overflow */
+  overflow: visible;
 }
 
 .background-image {
@@ -64,20 +56,19 @@ body::-webkit-scrollbar {
   top: 0;
   left: 0;
   width: 100%;
-  height: auto; /* Allow image height to adjust dynamically */
+  height: auto;
 }
 
+#gameContainer {
+  background-color: #f9f9f9;
+  border: 2px solid black;
+}
 
 .door-area {
     position: absolute;
-    /* background-color: rgba(255, 165, 0, 0.3); */
     cursor: pointer;
     z-index: 1;
 }
-
-/* .door-area:hover {
-    background-color: rgba(255, 165, 0, 0.9);
-} */
 
 #nextLevel:hover {
   background-color: rgba(0, 0, 0, 0.3);

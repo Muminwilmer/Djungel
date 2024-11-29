@@ -51,8 +51,6 @@ function startMazeGame() {
   gameContainer.style.position = "relative";
   gameContainer.style.width = "100vh";
   gameContainer.style.height = "100vh";
-  gameContainer.style.backgroundColor = "#f9f9f9";
-  gameContainer.style.border = "2px solid black";
   gameContainer.style.overflow = "hidden";
   imageContainer.appendChild(gameContainer);
 

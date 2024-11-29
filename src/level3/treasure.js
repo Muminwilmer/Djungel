@@ -16,7 +16,7 @@ function setUpTreasure(){
     const memoryLevel2 = localStorage.getItem("memorylvl2");
     const mazeLevel2 = localStorage.getItem("mazelvl2");
     
-    if (memoryLevel2 == "true" && mazeLevel2 == "true") {
+    // if (memoryLevel2 == "true" && mazeLevel2 == "true") {
       if (makeBoolean(localStorage.getItem("keyFound"))){
         localStorage.setItem("keyFound", "false");
         alert("You've found and opened the treasure! But inside you find it comes at a heavy cost..")
@@ -27,9 +27,9 @@ function setUpTreasure(){
       }else{
         alert("The chest is locked. Perhaps you can find the key hidden in this room.")
       }
-    } else {
-      window.location.href = "../level2/corridor.html";
-    }
+    // } else {
+    //   window.location.href = "../level2/corridor.html";
+    // }
   });
 }
 

@@ -69,8 +69,6 @@ async function startMemoryGame() {
   gameContainer.style.transform = "translate(-50%, -50%)"; // Move the element back by half its size
   gameContainer.style.width = "40%";
   // gameContainer.style.height = "80%";
-  gameContainer.style.backgroundColor = "#f9f9f9";
-  gameContainer.style.border = "2px solid black";
   gameContainer.style.display = "grid";
   gameContainer.style.gridTemplateColumns = "repeat(4, 1fr)";
   gameContainer.style.padding = "10px";

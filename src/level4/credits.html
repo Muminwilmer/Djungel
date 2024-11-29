@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -9,16 +10,66 @@
   <meta property="og:image" content="https://the-jungles-curse.vercel.app/src/assets/favicon.png" />
   <meta property="og:description" content="Thanks for playing our game!" />
   <meta name="theme-color" content="#196b21">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h1 {
+      margin-top: 30px;
+      font-size: 2.5rem;
+      color: #196b21;
+    }
+
+    .credits-container {
+      background: #fff;
+      padding: 20px 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      max-width: 600px;
+      width: 90%;
+      margin-top: 20px;
+    }
+
+    .credits-container p {
+      margin: 10px 0;
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    .credits-container p span {
+      font-weight: bold;
+      color: #115418;
+    }
+
+    footer {
+      margin-top: 20px;
+      font-size: 0.9rem;
+      color: #555;
+    }
+  </style>
 </head>
 <body>
   <h1>Thanks for playing!</h1>
 
-  <p>Digital-Art: RAT</p>
-  <p>Physical-Art: idk, idk and don't forget idk</p>
-  <p>Programming: Mumin</p>
-  <p>Music: Cheetar</p>
-  <p>Proffesional-QA: The guy that is constantly scrolling on reddit</p>
-  <p>Game-tester: lazarbanana</p>
-  
+  <div class="credits-container">
+    <p><span>Digital-Art:</span> RAT</p>
+    <p><span>Physical-Art:</span> Alexander, Tuva</p>
+    <p><span>Programming:</span> Mumin</p>
+    <p><span>Music:</span> Oscar</p>
+    <p><span>Game Testers:</span> The Lego Man, Alexander</p>
+    <p><span>Project Leader:</span> Not_Me</p>
+  </div>
+
+  <footer>
+    <p>&copy; 2024 The Jungles Curse Team. All rights reserved.</p>
+  </footer>
 </body>
 </html>
