@@ -17,8 +17,8 @@ function setUpEasterEgg(){
     localStorage.setItem("mazelvl2", "false");
     localStorage.setItem("keyFound", "false");
     window.location.href = "../level1/outside.html"
-  });
-  doorArea.addEventListener("mousemove", checkIfHide);
+  })
+  .addEventListener("mousemove", checkIfHide);
 }
 
 function checkIfHide(){
